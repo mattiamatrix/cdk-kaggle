@@ -1,6 +1,10 @@
 {
   "dependencies": [
     {
+      "name": "@trivago/prettier-plugin-sort-imports",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "version": "^27",
       "type": "build"
@@ -22,12 +26,16 @@
     },
     {
       "name": "aws-cdk-lib",
-      "version": "2.1.0",
+      "version": "2.40.0",
       "type": "build"
     },
     {
       "name": "constructs",
       "version": "10.0.5",
+      "type": "build"
+    },
+    {
+      "name": "eslint-config-prettier",
       "type": "build"
     },
     {
@@ -40,6 +48,14 @@
     },
     {
       "name": "eslint-plugin-import",
+      "type": "build"
+    },
+    {
+      "name": "eslint-plugin-prettier",
+      "type": "build"
+    },
+    {
+      "name": "eslint-plugin-promise",
       "type": "build"
     },
     {
@@ -66,10 +82,6 @@
       "type": "build"
     },
     {
-      "name": "jsii-docgen",
-      "type": "build"
-    },
-    {
       "name": "jsii-pacmak",
       "type": "build"
     },
@@ -80,6 +92,10 @@
     {
       "name": "npm-check-updates",
       "version": "^16",
+      "type": "build"
+    },
+    {
+      "name": "prettier",
       "type": "build"
     },
     {
@@ -94,6 +110,14 @@
     {
       "name": "ts-jest",
       "version": "^27",
+      "type": "build"
+    },
+    {
+      "name": "ts-node",
+      "type": "build"
+    },
+    {
+      "name": "tsc-alias",
       "type": "build"
     },
     {
@@ -117,7 +141,7 @@
     },
     {
       "name": "aws-cdk-lib",
-      "version": "^2.1.0",
+      "version": "^2.40.0",
       "type": "peer"
     },
     {
