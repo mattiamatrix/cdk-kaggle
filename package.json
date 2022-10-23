@@ -20,7 +20,6 @@
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
-    "publish:git": "npx projen publish:git",
     "release": "npx projen release",
     "test": "npx projen test",
     "test:watch": "npx projen test:watch",
@@ -69,7 +68,10 @@
     "constructs": "^10.0.5"
   },
   "keywords": [
-    "cdk"
+    "athena",
+    "aws",
+    "cdk",
+    "kaggle"
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
