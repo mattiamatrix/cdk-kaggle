@@ -1,15 +1,51 @@
-const { awscdk } = require('projen');
+const { awscdk, release } = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
-  author: 'Mattia Sappa',
-  authorAddress: 'mattiasappa@gmail.com',
-  cdkVersion: '2.1.0',
-  defaultReleaseBranch: 'main',
   name: 'cdk-kaggle',
+  description: 'CDK construct to easily work with Lake Formation in the Showpad data lake.',
   repositoryUrl: 'https://github.com/mattiasappa/cdk-kaggle.git',
 
+  author: 'Mattia Sappa',
+  authorAddress: 'mattiasappa@gmail.com',
+
+  stability: 'experimental',
+  defaultReleaseBranch: 'main',
+  releaseTrigger: release.ReleaseTrigger.manual(),
+  licensed: true,
+
+  docgen: false,
+
+  cdkVersion: '2.40.0',
   // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
+  devDeps: [
+    '@trivago/prettier-plugin-sort-imports',
+    'eslint-config-prettier',
+    'eslint-plugin-prettier',
+    'eslint-plugin-promise',
+    'ts-node',
+    'tsc-alias',
+  ],
+
+  eslint: true,
+  prettier: true,
+  prettierOptions: {
+    settings: {
+      semi: true,
+      trailingComma: 'all',
+      singleQuote: true,
+      printWidth: 120,
+      tabWidth: 2,
+      importOrder: ['^constructs(.*)$', '^aws-cdk(.*)$', '^@aws-sdk(.*)$', '^test/(.*)$', '^[./]'],
+      importOrderSeparation: true,
+    },
+  },
+
+  dependabot: false,
 });
+
+// .eslintrc.json
+project.eslint.addRules({ 'import/order': 'off' });
+
+// .prettierignore
+['node_modules', 'dist', 'coverage', 'out', 'cdk.out'].forEach((element) => project.prettier.addIgnorePattern(element));
+
 project.synth();
