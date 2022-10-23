@@ -9,8 +9,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
 
   stability: 'experimental',
   defaultReleaseBranch: 'main',
-  releaseTrigger: release.ReleaseTrigger.manual(),
-  licensed: true,
+  keywords: ['aws', 'athena', 'kaggle'],
 
   docgen: false,
 
@@ -45,7 +44,13 @@ const project = new awscdk.AwsCdkConstructLibrary({
 // .eslintrc.json
 project.eslint.addRules({ 'import/order': 'off' });
 
+const common_exclude = ['cdk.out', 'cdk.context.json', 'yarn-error.log', 'coverage', 'venv'];
+
+// .gitignore
+project.gitignore.exclude(...common_exclude);
+// .npmignore
+project.npmignore.exclude(...common_exclude);
 // .prettierignore
-['node_modules', 'dist', 'coverage', 'out', 'cdk.out'].forEach((element) => project.prettier.addIgnorePattern(element));
+[...common_exclude, 'node_modules', 'dist', 'out'].forEach((element) => project.prettier.addIgnorePattern(element));
 
 project.synth();
