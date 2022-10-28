@@ -1,7 +1,7 @@
 const { awscdk, release } = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
   name: 'cdk-kaggle',
-  description: 'CDK construct to easily work with Lake Formation in the Showpad data lake.',
+  description: '',
   repositoryUrl: 'https://github.com/mattiasappa/cdk-kaggle.git',
 
   author: 'Mattia Sappa',
